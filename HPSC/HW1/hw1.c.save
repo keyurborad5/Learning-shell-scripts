@@ -1,0 +1,23 @@
+//PLEASE COMPILE IT WITH -lm AT THE END
+// EXAMPLE: "gcc -o hw1 hw1.c -lm" only then it will work!!!
+
+#include <stdio.h>
+#include <math.h> 
+
+int main () 
+{
+double x[200];
+double y[200],r,sum,trap;
+int i,j;
+for (i=0;i<=180;i++){
+x[i]=-90+i;
+y[i]=cos(x[i]*3.14/180);
+}
+sum=0;
+for (j=1;j<180;j++){
+sum=sum+y[j];
+}
+trap=3.14/(2*180)*(y[0]+y[180]+2*sum);
+printf("Integration of cos from -pi/2 to +pi/2 is : %f\n",trap);
+   return 0;
+}
